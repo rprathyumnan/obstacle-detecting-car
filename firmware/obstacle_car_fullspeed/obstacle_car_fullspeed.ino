@@ -1,4 +1,4 @@
-// Obstacle car with SPEED CONTROL (ENA/ENB caps REMOVED, wired to D5 / D3)
+// Obstacle car, FULL SPEED version (ENA/ENB caps stay ON, no PWM)
 // Arduino Uno + HC-SR04 + 16x2 I2C LCD + L298N
 // Library needed: LiquidCrystal_I2C (Frank de Brabander)
 
@@ -10,21 +10,14 @@ const int TRIG = 9;
 const int ECHO = 10;
 const int BUZZER = 12;
 
-const int ENA = 5;    // left side speed (PWM)
-const int IN1 = 6;
+const int IN1 = 6;    // left side
 const int IN2 = 7;
 const int IN3 = 8;    // right side
 const int IN4 = 11;
-const int ENB = 3;    // right side speed (PWM)
 
-// ---- Tuning (0-255) ----
-const int CRUISE_SPEED = 200;   // path clear
-const int SLOW_SPEED   = 150;   // 20-40 cm from obstacle
-const int BACK_SPEED   = 180;
-const int TURN_SPEED   = 220;
-
-const int STOP_DIST_CM = 20;
-const int WARN_DIST_CM = 40;
+// ---- Tuning ----
+const int STOP_DIST_CM = 20;    // avoid below this
+const int WARN_DIST_CM = 40;    // warn (beep) below this
 const int BACK_TIME_MS = 400;
 const int TURN_TIME_MS = 800;   // tune on the floor
 
@@ -54,21 +47,19 @@ long readDistance() {
   return b;
 }
 
-// left/right: -255..255 (sign = direction, size = speed)
+// -1 = backward, 0 = stop, 1 = forward for each side
 void setMotors(int left, int right) {
   digitalWrite(IN1, left > 0);
   digitalWrite(IN2, left < 0);
   digitalWrite(IN3, right > 0);
   digitalWrite(IN4, right < 0);
-  analogWrite(ENA, abs(left));
-  analogWrite(ENB, abs(right));
 }
 
-void stopCar()        { setMotors(0, 0); }
-void forward(int s)   { setMotors(s, s); }
-void backward()       { setMotors(-BACK_SPEED, -BACK_SPEED); }
-void turnLeft()       { setMotors(0, TURN_SPEED); }   // left side stopped
-void turnRight()      { setMotors(TURN_SPEED, 0); }   // right side stopped
+void stopCar()   { setMotors(0, 0); }
+void forward()   { setMotors(1, 1); }
+void backward()  { setMotors(-1, -1); }
+void turnLeft()  { setMotors(0, 1); }   // left side stopped, right side runs
+void turnRight() { setMotors(1, 0); }   // right side stopped, left side runs
 
 void show(long d, const char* status) {
   lcd.setCursor(0, 0);
@@ -85,8 +76,10 @@ void setup() {
   pinMode(TRIG, OUTPUT);
   pinMode(ECHO, INPUT);
   pinMode(BUZZER, OUTPUT);
-  int motorPins[] = {ENA, IN1, IN2, IN3, IN4, ENB};
-  for (int i = 0; i < 6; i++) pinMode(motorPins[i], OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
   stopCar();
 
   lcd.init();
@@ -119,11 +112,11 @@ void loop() {
     stopCar();
     delay(100);
   } else if (d <= WARN_DIST_CM) {
-    forward(SLOW_SPEED);
-    show(d, "Slowing down");
+    forward();
+    show(d, "Warning: close");
     tone(BUZZER, 1000, 50);
   } else {
-    forward(CRUISE_SPEED);
+    forward();
     show(d, "Path clear");
     noTone(BUZZER);
   }

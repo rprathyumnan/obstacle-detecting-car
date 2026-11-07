@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="660" viewBox="0 0 1060 660" font-family="Arial, Helvetica, sans-serif">
+<rect width="1060" height="660" fill="#ffffff"/>
+<text x="20" y="26" font-size="20" font-weight="bold" fill="#2C2C2A">Obstacle detecting car: circuit diagram</text>
+
+<rect x="60" y="44" width="200" height="44" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.5"/>
+<text x="160" y="60" font-size="14" font-weight="bold" fill="#412402" text-anchor="middle" dominant-baseline="central">Motor battery 7.4 V</text>
+<text x="160" y="77" font-size="12" fill="#633806" text-anchor="middle" dominant-baseline="central">2x 3.7 V cells in series</text>
+
+<rect x="40" y="140" width="220" height="300" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+<text x="150" y="290" font-size="18" font-weight="bold" fill="#04342C" text-anchor="middle" dominant-baseline="central">L298N</text>
+<text x="150" y="312" font-size="12" fill="#085041" text-anchor="middle" dominant-baseline="central">Motor driver</text>
+
+<rect x="400" y="140" width="210" height="380" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+<text x="505" y="330" font-size="18" font-weight="bold" fill="#042C53" text-anchor="middle" dominant-baseline="central">Arduino Uno</text>
+<text x="505" y="352" font-size="12" fill="#0C447C" text-anchor="middle" dominant-baseline="central">Powered by USB</text>
+
+<rect x="780" y="150" width="200" height="120" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="880" y="170" font-size="15" font-weight="bold" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">HC-SR04</text>
+<text x="880" y="187" font-size="12" fill="#444441" text-anchor="middle" dominant-baseline="central">Ultrasonic sensor</text>
+
+<rect x="780" y="290" width="200" height="60" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="880" y="320" font-size="15" font-weight="bold" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">Buzzer</text>
+
+<rect x="780" y="380" width="200" height="130" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="880" y="400" font-size="15" font-weight="bold" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">16x2 I2C LCD</text>
+
+<rect x="50" y="490" width="100" height="64" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.5"/>
+<rect x="160" y="490" width="100" height="64" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="100" y="530" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">Left motors</text>
+<text x="100" y="546" font-size="11" fill="#444441" text-anchor="middle" dominant-baseline="central">2x in parallel</text>
+<text x="210" y="530" font-size="14" font-weight="bold" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">Right motors</text>
+<text x="210" y="546" font-size="11" fill="#444441" text-anchor="middle" dominant-baseline="central">2x in parallel</text>
+<text x="80" y="506" font-size="13" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">+</text>
+<text x="120" y="506" font-size="13" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">-</text>
+<text x="190" y="506" font-size="13" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">+</text>
+<text x="230" y="506" font-size="13" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">-</text>
+
+<g stroke-width="2" fill="none" stroke-linecap="round">
+<path d="M100 88V140" stroke="#C0392B"/>
+<path d="M220 88V140" stroke="#222222"/>
+<path d="M470 140V112H220" stroke="#222222" stroke-width="2.5"/>
+
+<path d="M260 190H400" stroke="#185FA5"/>
+<path d="M260 230H400" stroke="#185FA5"/>
+<path d="M260 270H400" stroke="#185FA5"/>
+<path d="M260 310H400" stroke="#185FA5"/>
+<path d="M260 350H400" stroke="#185FA5"/>
+<path d="M260 390H400" stroke="#185FA5"/>
+
+<path d="M80 440V490" stroke="#C0392B"/>
+<path d="M120 440V490" stroke="#222222"/>
+<path d="M190 440V490" stroke="#C0392B"/>
+<path d="M230 440V490" stroke="#222222"/>
+
+<path d="M610 200H780" stroke="#185FA5"/>
+<path d="M610 240H780" stroke="#185FA5"/>
+<path d="M610 315H780" stroke="#185FA5"/>
+<path d="M610 420H780" stroke="#185FA5"/>
+<path d="M610 460H780" stroke="#185FA5"/>
+
+<path d="M610 495H645" stroke="#C0392B"/>
+<path d="M980 200H1000" stroke="#C0392B"/>
+<path d="M980 420H1000" stroke="#C0392B"/>
+
+<path d="M980 240H995" stroke="#222222"/>
+<path d="M980 320H995" stroke="#222222"/>
+<path d="M980 460H995" stroke="#222222"/>
+<path d="M995 232V248M1001 235V245M1007 238V242" stroke="#222222"/>
+<path d="M995 312V328M1001 315V325M1007 318V322" stroke="#222222"/>
+<path d="M995 452V468M1001 455V465M1007 458V462" stroke="#222222"/>
+</g>
+
+<g font-size="12" fill="#2C2C2A" dominant-baseline="central">
+<text x="100" y="160" text-anchor="middle">+12V</text>
+<text x="220" y="160" text-anchor="middle">GND</text>
+<text x="470" y="160" text-anchor="middle">GND</text>
+<text x="80" y="424" text-anchor="middle">OUT1</text>
+<text x="120" y="424" text-anchor="middle">OUT2</text>
+<text x="190" y="424" text-anchor="middle">OUT3</text>
+<text x="230" y="424" text-anchor="middle">OUT4</text>
+
+<text x="250" y="190" text-anchor="end">ENA</text>
+<text x="250" y="230" text-anchor="end">IN1</text>
+<text x="250" y="270" text-anchor="end">IN2</text>
+<text x="250" y="310" text-anchor="end">IN3</text>
+<text x="250" y="350" text-anchor="end">IN4</text>
+<text x="250" y="390" text-anchor="end">ENB</text>
+
+<text x="410" y="190">D5</text>
+<text x="410" y="230">D6</text>
+<text x="410" y="270">D7</text>
+<text x="410" y="310">D8</text>
+<text x="410" y="350">D11</text>
+<text x="410" y="390">D3</text>
+
+<text x="600" y="200" text-anchor="end">D9</text>
+<text x="600" y="240" text-anchor="end">D10</text>
+<text x="600" y="315" text-anchor="end">D12</text>
+<text x="600" y="420" text-anchor="end">A4</text>
+<text x="600" y="460" text-anchor="end">A5</text>
+<text x="600" y="495" text-anchor="end">5V</text>
+
+<text x="790" y="200">Trig</text>
+<text x="790" y="240">Echo</text>
+<text x="970" y="200" text-anchor="end">Vcc</text>
+<text x="970" y="240" text-anchor="end">Gnd</text>
+<text x="790" y="315">+</text>
+<text x="970" y="320" text-anchor="end">-</text>
+<text x="790" y="420">SDA</text>
+<text x="790" y="460">SCL</text>
+<text x="970" y="420" text-anchor="end">VCC</text>
+<text x="970" y="460" text-anchor="end">GND</text>
+
+<text x="652" y="495" fill="#A32D2D">+5V</text>
+<text x="1006" y="200" fill="#A32D2D">+5V</text>
+<text x="1006" y="420" fill="#A32D2D">+5V</text>
+</g>
+
+<g>
+<circle cx="100" cy="88" r="4" fill="#C0392B"/>
+<circle cx="220" cy="88" r="4" fill="#222222"/>
+<circle cx="100" cy="140" r="4" fill="#C0392B"/>
+<circle cx="220" cy="140" r="4" fill="#222222"/>
+<circle cx="470" cy="140" r="4" fill="#222222"/>
+<circle cx="220" cy="112" r="4" fill="#222222"/>
+<circle cx="80" cy="440" r="4" fill="#C0392B"/>
+<circle cx="120" cy="440" r="4" fill="#222222"/>
+<circle cx="190" cy="440" r="4" fill="#C0392B"/>
+<circle cx="230" cy="440" r="4" fill="#222222"/>
+<circle cx="80" cy="490" r="4" fill="#C0392B"/>
+<circle cx="120" cy="490" r="4" fill="#222222"/>
+<circle cx="190" cy="490" r="4" fill="#C0392B"/>
+<circle cx="230" cy="490" r="4" fill="#222222"/>
+<circle cx="260" cy="190" r="4" fill="#185FA5"/><circle cx="400" cy="190" r="4" fill="#185FA5"/>
+<circle cx="260" cy="230" r="4" fill="#185FA5"/><circle cx="400" cy="230" r="4" fill="#185FA5"/>
+<circle cx="260" cy="270" r="4" fill="#185FA5"/><circle cx="400" cy="270" r="4" fill="#185FA5"/>
+<circle cx="260" cy="310" r="4" fill="#185FA5"/><circle cx="400" cy="310" r="4" fill="#185FA5"/>
+<circle cx="260" cy="350" r="4" fill="#185FA5"/><circle cx="400" cy="350" r="4" fill="#185FA5"/>
+<circle cx="260" cy="390" r="4" fill="#185FA5"/><circle cx="400" cy="390" r="4" fill="#185FA5"/>
+<circle cx="610" cy="200" r="4" fill="#185FA5"/><circle cx="780" cy="200" r="4" fill="#185FA5"/>
+<circle cx="610" cy="240" r="4" fill="#185FA5"/><circle cx="780" cy="240" r="4" fill="#185FA5"/>
+<circle cx="610" cy="315" r="4" fill="#185FA5"/><circle cx="780" cy="315" r="4" fill="#185FA5"/>
+<circle cx="610" cy="420" r="4" fill="#185FA5"/><circle cx="780" cy="420" r="4" fill="#185FA5"/>
+<circle cx="610" cy="460" r="4" fill="#185FA5"/><circle cx="780" cy="460" r="4" fill="#185FA5"/>
+<circle cx="610" cy="495" r="4" fill="#C0392B"/>
+<circle cx="980" cy="200" r="4" fill="#C0392B"/>
+<circle cx="980" cy="240" r="4" fill="#222222"/>
+<circle cx="980" cy="320" r="4" fill="#222222"/>
+<circle cx="980" cy="420" r="4" fill="#C0392B"/>
+<circle cx="980" cy="460" r="4" fill="#222222"/>
+</g>
+
+<g font-size="12" fill="#2C2C2A" dominant-baseline="central">
+<line x1="20" y1="590" x2="50" y2="590" stroke="#185FA5" stroke-width="2"/>
+<text x="58" y="590">Signal wire</text>
+<line x1="170" y1="590" x2="200" y2="590" stroke="#C0392B" stroke-width="2"/>
+<text x="208" y="590">Positive (+) wire</text>
+<line x1="350" y1="590" x2="380" y2="590" stroke="#222222" stroke-width="2"/>
+<text x="388" y="590">Ground / negative (-) wire</text>
+<text x="20" y="615">PWM version: ENA and ENB jumper caps removed and wired to D5 and D3. Full-speed version: caps stay on, no wires to D5/D3.</text>
+<text x="20" y="635">The L298N GND, the Arduino GND and the battery negative are joined (common ground). All GND symbols connect to the Arduino GND.</text>
+</g>
+</svg>
